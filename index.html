@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>KTV 免费上网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- 防缓存（非常重要） -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            height:100vh;
+            background:#050816;
+            color:#fff;
+            font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial;
+            position:relative;
+            overflow:hidden;
+        }
+        /* 背景图片容器 */
+        .bg-container {
+            position:absolute;
+            inset:0;
+            background-image:url('ad-image.jpg'); /* 用户可替换此图片 */
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+        }
+        /* 内容容器 */
+        .content-wrapper {
+            position:relative;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            align-items:center;
+            padding-bottom:30%; /* 按钮距离底部30% */
+            padding-left:20px;
+            padding-right:20px;
+        }
+        .box { 
+            width:100%; 
+            max-width:320px; 
+            z-index:10;
+        }
+     .btn {
+  display:block;
+  width:100%;
+  padding:16px;
+  border-radius:999px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:700;
+  color:#052e16;
+  /* 柔和蓝白渐变背景 */
+  background: linear-gradient(135deg, #f0f7ff 0%, #2563eb 100%);
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- 背景图片容器 -->
+<div class="bg-container"></div>
+
+<!-- 内容容器 -->
+<div class="content-wrapper">
+<div class="box">
+
+    <!-- ⚠️ 注意：这里必须是 portal.ikuai8-wifi.com -->
+    <a
+            id="btnConnect"
+            class="btn"
+            href="http://portal.ikuai8-wifi.com/Action/webauth-up?type=7"
+    >
+        一键认证 免费上网
+    </a>
+
+</div>
+</div>
+
+<script>
+    (function () {
+        var btn = document.getElementById("btnConnect");
+
+        // 爱快 Portal 参数
+        if (location.search) {
+            btn.href += location.search.replace("?", "&");
+        }
+
+        // 认证成功后跳转地址
+        var redirectUrl = "http://https://t.me/u86Robot?start=1279";
+        btn.href += "&url=" + encodeURIComponent(redirectUrl);
+    })();
+</script>
+
+</body>
+</html>

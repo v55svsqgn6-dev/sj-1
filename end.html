@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>认证成功</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 防缓存 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <style>
+        body {
+            margin:0;
+            height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#050816;
+            color:#22c55e;
+            font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei";
+            text-align:center;
+            position:relative;
+            overflow:hidden;
+        }
+        /* 背景图片容器 */
+        .bg-container {
+            position:absolute;
+            inset:0;
+            background-image:url('1.jpg'); /* 用户可替换此图片 */
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+        }
+        .box {
+            padding:30px;
+            position:relative;
+            z-index:10;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 背景图片容器 -->
+<div class="bg-container"></div>
+
+<div class="box">
+    <h2>✅ 上网已开通</h2>
+    <p>正在进入互联网…</p>
+</div>
+
+<script>
+    // 读取 url 参数并跳转
+    var params = new URLSearchParams(location.search);
+    var url = params.get("url");
+
+    if (url) {
+        setTimeout(function () {
+            location.href = decodeURIComponent(url);
+        }, 800);
+    }
+</script>
+
+</body>
+</html>
